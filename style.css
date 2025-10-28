@@ -86,3 +86,110 @@ footer a:hover {
 #sidebar a:hover {
   text-decoration: underline;
 }
+
+
+/* --- Mobile-first: ajustes gerais --- */
+#nameAndTitle{
+  width:100%;
+  max-width:500px;
+  margin:0 auto;
+  padding:16px;
+  box-sizing:border-box;
+}
+
+#header{
+  margin-top:20px;
+  margin-bottom:20px;
+  padding:12px 0;
+}
+
+/* Container empilhado em telas pequenas */
+#container{
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-column-gap:12px;
+  gap:16px;
+  padding:12px;
+  box-sizing:border-box;
+}
+
+/* Ajustes dos cartões e colunas para leitura móvel */
+#sidebar, #content{
+  display:flex;
+  flex-direction:column;
+  row-gap:12px;
+}
+
+.card{
+  padding:16px;
+  border-radius:12px;
+}
+
+/* Lista de contato e links em linha para economizar espaço */
+#contact, #links{
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+#contact li, #links li{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+}
+#contact i, #links i{
+  flex:0 0 28px;
+  width:28px;
+  text-align:center;
+}
+
+/* Tipografia um pouco menor em telas pequenas para evitar quebras estranhas */
+h1{font-size:1.25rem}
+h2{font-size:1rem}
+h3{font-size:0.95rem}
+
+/* --- Tablet e desktop: duas colunas a partir de 880px --- */
+@media (min-width: 881px){
+  #container{
+    grid-template-columns: 30% auto;
+    grid-column-gap:20px;
+    padding:0;
+    gap:20px;
+  }
+
+  #header{
+    margin-top:50px;
+    margin-bottom:50px;
+    padding:0;
+  }
+
+  #nameAndTitle{
+    max-width:500px;
+    padding:20px;
+  }
+
+  .card{
+    padding:20px;
+  }
+
+  h1{font-size:1.6rem}
+  h2{font-size:1.15rem}
+  h3{font-size:1rem}
+}
+
+/* --- Ajustes finos para telas muito estreitas --- */
+@media (max-width: 420px){
+  body{padding:10px}
+  #nameAndTitle{padding:12px}
+  #contact li, #links li{gap:6px}
+  h1{font-size:1.1rem}
+  h2{font-size:0.95rem}
+}
+
+/* --- Impressão limpa --- */
+@media print{
+  #header{background:transparent;color:#000;margin:0}
+  #nameAndTitle{background:transparent;box-shadow:none;border:none}
+  .card{border:1px solid #ddd;box-shadow:none}
+  a::after{content:" (" attr(href) ")";}
+}
